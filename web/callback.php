@@ -1,5 +1,5 @@
 <?php
-
+require ( __DIR__ . '/LINE/LINEBot/HTTPClient/CurlHTTPClient.php');
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 $channel_secret = "bf96d0ad631471717ccfb43c434ba9cd";
 
@@ -20,8 +20,8 @@ if($type != "text"){
 	exit;
 }
 
-/*
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($replyToken);
+/*
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 $response = $bot->getProfile($user_id);
 
