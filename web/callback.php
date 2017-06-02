@@ -25,13 +25,13 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 $response = $bot->getProfile($user_id);
 
 
-if ($response->isSucceeded()) {
+//if ($response->isSucceeded()) {
       $profile = $response->getJSONDecodedBody();
       $displayName = $profile['displayName'];
       $userId = $profile['userId'];
       $pictureUrl = $profile['pictureUrl'];
       $statusMessage = $profile['statusMessage'];
-}
+//}
 
 //返信データ作成
 if ($text == 'はい') {
