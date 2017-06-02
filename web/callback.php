@@ -24,13 +24,14 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($replyToken);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 $response = $bot->getProfile($user_id);
 
-
+$msg = 'abc';
 if ($response->isSucceeded()) {
       $profile = $response->getJSONDecodedBody();
       $displayName = $profile['displayName'];
       $userId = $profile['userId'];
       $pictureUrl = $profile['pictureUrl'];
       $statusMessage = $profile['statusMessage'];
+  $msg = 'def';
 }
 
 //返信データ作成
@@ -42,7 +43,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "○○×レストラン",
-      "text" => "".$displayName ."さん お探しのレストランはこれですね" . $response->isSucceeded(),
+      "text" => "".$displayName ."さん お探しのレストランはこれですね" . $msg,
       "actions" => [
           [
             "type" => "postback",
