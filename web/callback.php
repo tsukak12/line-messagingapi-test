@@ -1,5 +1,6 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
+$channel_secret = "bf96d0ad631471717ccfb43c434ba9cd";
 
 
 //ユーザーからのメッセージ取得
@@ -18,6 +19,17 @@ if($type != "text"){
 	exit;
 }
 
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($replyToken);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
+$response = $bot->getProfile($user_id);
+
+if ($response->isSucceeded()) {
+      $profile = $response->getJSONDecodedBody();
+      $displayName = $profile['displayName'];
+      $userId = $profile['userId'];
+      $pictureUrl = $profile['pictureUrl'];
+      $statusMessage = $profile['statusMessage'];
+}
 //返信データ作成
 if ($text == 'はい') {
   $response_format_text = [
@@ -27,7 +39,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "○○×レストラン",
-      "text" => "".$user_id."さん お探しのレストランはこれですね",
+      "text" => "".$displayName."さん お探しのレストランはこれですね",
       "actions" => [
           [
             "type" => "postback",
