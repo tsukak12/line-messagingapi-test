@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 $channel_secret = "bf96d0ad631471717ccfb43c434ba9cd";
 
