@@ -20,7 +20,7 @@ if($type != "text"){
 	exit;
 }
 
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($replyToken);
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($accessToken);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 $response = $bot->getProfile($user_id);
 
