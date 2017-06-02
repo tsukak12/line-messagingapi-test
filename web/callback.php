@@ -1,6 +1,6 @@
 <?php
-require 'LINE\LINEBot\HTTPClient\CurlHTTPClient.php';
-require 'LINE\LINEBot.php';
+require dirname(__FILE__) . '/LINE/LINEBot/HTTPClient/CurlHTTPClient.php';
+require dirname(__FILE__) . '/LINE/LINEBot.php';
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 $channel_secret = "bf96d0ad631471717ccfb43c434ba9cd";
 
