@@ -19,8 +19,8 @@ if($type != "text"){
 	exit;
 }
 
-$httpClient = new LINE/LINEBot/HTTPClient/CurlHTTPClient($replyToken);
-$bot = new LINE/LINEBot($httpClient, ['channelSecret' => $channel_secret]);
+$httpClient = new LINE\LINEBot\HTTPClient\CurlHTTPClient($replyToken);
+$bot = new LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 /*
 $response = $bot->getProfile($user_id);
 
