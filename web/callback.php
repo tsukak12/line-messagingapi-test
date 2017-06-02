@@ -21,7 +21,6 @@ if($type != "text"){
 }
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($replyToken);
-/*
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 $response = $bot->getProfile($user_id);
 
@@ -33,7 +32,7 @@ if ($response->isSucceeded()) {
       $pictureUrl = $profile['pictureUrl'];
       $statusMessage = $profile['statusMessage'];
 }
-*/
+
 //返信データ作成
 if ($text == 'はい') {
   $response_format_text = [
