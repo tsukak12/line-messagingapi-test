@@ -24,16 +24,27 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($accessToken);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 $response = $bot->getProfile($user_id);
 
-$msg = 'abc';
 if ($response->isSucceeded()) {
       $profile = $response->getJSONDecodedBody();
       $displayName = $profile['displayName'];
       $userId = $profile['userId'];
       $pictureUrl = $profile['pictureUrl'];
       $statusMessage = $profile['statusMessage'];
-  $msg = 'def';
 }
 
+if ($text == '近くいる') {
+  $response_format_text = [
+    "type" => "text",
+    "text" => $displayName."さんの近くには太郎さんがいます。"
+  ];
+} else {
+  $response_format_text = [
+    "type" => "text",
+    "text" => "こんにちは、何でしょうか？"
+  ];
+}
+
+/*
 //返信データ作成
 if ($text == 'はい') {
   $response_format_text = [
@@ -43,7 +54,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "○○×レストラン",
-      "text" => "".$displayName ."さん お探しのレストランはこれですね" . $msg,
+      "text" => "".$displayName ."さん お探しのレストランはこれですね",
       "actions" => [
           [
             "type" => "postback",
@@ -168,7 +179,7 @@ if ($text == 'はい') {
     ]
   ];
 }
-
+*/
 $post_data = [
 	"replyToken" => $replyToken,
 	"messages" => [$response_format_text]
