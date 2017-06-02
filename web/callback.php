@@ -42,7 +42,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "○○×レストラン",
-      "text" => "".$user_id."さん お探しのレストランはこれですね",
+      "text" => "".$displayName ."さん お探しのレストランはこれですね",
       "actions" => [
           [
             "type" => "postback",
