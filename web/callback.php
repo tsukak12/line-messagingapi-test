@@ -1,7 +1,7 @@
 <?php
 require_once('./vendor/autoload.php');
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
-$channel_secret = "bf96d0ad631471717ccfb43c434ba9cd";
+$channel_secret = getenv('LINE_CHANNEL_SECRET');
 
 
 //ユーザーからのメッセージ取得
