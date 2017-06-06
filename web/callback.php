@@ -47,7 +47,7 @@ if ($text == '近くいる') {
 		"messages" => [$response_format_text]
 		];
 
-	sleep(5);
+	//sleep(5);
 	$ch = curl_init("https://api.line.me/v2/bot/message/push");
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
