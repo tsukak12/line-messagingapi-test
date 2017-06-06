@@ -37,7 +37,7 @@ if ($text == '近くいる') {
     "type" => "text",
     "text" => $displayName."さんの近くには太郎さんがいます。"
   ];
-} else if ($text == 'push') {
+} else if (strcasecmp($text, "push") == 0) {
   $response_format_text = [
     "type" => "text",
     "text" => "これは5秒後に配信されたpushメッセージです。"
