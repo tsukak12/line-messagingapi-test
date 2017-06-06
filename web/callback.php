@@ -46,13 +46,12 @@ if ($text == '近くいる') {
 } else if (strcasecmp($text, "push") == 0) {
   $response_format_text = [
     "type" => "text",
-    "text" => "これは5秒後に配信されたpushメッセージです。"
+    "text" => "これはユーザに向けたpushメッセージです。"
   ];
   $post_data = [
     "to" => $user_id,
     "messages" => [$response_format_text]
   ];
-  sleep(5);
   $ch = curl_init("https://api.line.me/v2/bot/message/push");
 } else {
   $response_format_text = [
