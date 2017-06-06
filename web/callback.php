@@ -37,6 +37,30 @@ if ($text == '近くいる') {
     "type" => "text",
     "text" => $displayName."さんの近くには太郎さんがいます。"
   ];
+} else if ($text == 'push') {
+  $response_format_text = [
+    "type" => "text",
+    "text" => "これは5秒後に配信されたpushメッセージです。"
+  ];
+	$post_data = [
+		"to" => $user_id,
+		"messages" => [$response_format_text]
+		];
+
+	sleep(5);
+	$ch = curl_init("https://api.line.me/v2/bot/message/push");
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+	    'Content-Type: application/json; charser=UTF-8',
+	    'Authorization: Bearer ' . $accessToken
+	    ));
+	$result = curl_exec($ch);
+	curl_close($ch);
+    return;
+	
 } else {
   $response_format_text = [
     "type" => "text",
