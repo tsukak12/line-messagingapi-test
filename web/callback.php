@@ -58,7 +58,7 @@ if ($text == '近くいる') {
   ));
   $result = curl_exec($ch);
   curl_close($ch);
-  exit;
+  //exit;
 } else {
   $response_format_text = [
     "type" => "text",
